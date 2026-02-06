@@ -17,3 +17,9 @@ const h2 = document.createElement('h2')
 list.append(h2)
 
 h2.innerHTML = messages[i]
+
+//local storage
+const key = "It's a secret to everybody."
+const message = "Legend of Zelda? I have no clue"
+
+localStorage.setItem(key, JSON.stringify(message))
