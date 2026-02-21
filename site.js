@@ -23,3 +23,40 @@ const key = "It's a secret to everybody."
 const message = "Legend of Zelda? I have no clue"
 
 localStorage.setItem(key, JSON.stringify(message))
+
+
+//rotating photo
+const urls = [
+    'images/christmas.jpg',
+    'images/hamilton.jpg',
+    'images/turkeytrot.jpg',
+    'images/forensics.jpg',
+    'images/sheep.jpg'
+].map(url => { (new Image()).src = url; return url })
+
+const images = document.querySelectorAll('#carousel img')
+
+let currentImage = 0
+const showImages = () => {
+    const offset = currentImage % urls.length
+    images.forEach((image, index) => {
+        const imageIndex = (index + offset + urls.length) % urls.length
+        image.src = urls[imageIndex]
+    })
+}
+const prev = document.getElementById('prev')
+const next = document.getElementById('next')
+
+next.addEventListener('click', () => {currentImage = currentImage + 1
+    showImages()})
+prev.addEventListener('click', () => {currentImage = currentImage -1
+    showImages()})
+
+
+
+setInterval(() => {
+    currentImage = currentImage + 1
+    showImages()
+}, 5000)
+
+showImages()
