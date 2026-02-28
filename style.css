@@ -57,3 +57,46 @@ p,h3,ul{
     gap: 10px;
     margin-top: 10px;
 }
+
+#topNav h2, p {
+  margin: 10px;
+}
+
+#topNav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333333;
+}
+
+#topNav ul li {
+  float: left;
+  border-right:1px solid #bbbbbb;
+}
+
+#topNav ul li:last-child {
+  border-right: none;
+}
+
+#topNav ul li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+#topNav ul li a:hover:not(.active) {
+  background-color: #111111;
+}
+
+#topNav ul li a.active {
+  background-color: #04AA6D;
+}
+
+#center {
+    text-align: center;
+    align-items: center;
+    min-height: 700px;
+}
