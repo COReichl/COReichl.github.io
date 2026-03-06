@@ -1,4 +1,4 @@
-const pokemon = (async () => {
+(async () => {
 
     const https = require('https')
 
@@ -16,23 +16,17 @@ const pokemon = (async () => {
 //get a random pokemon
 const json = await getRandomPokemon()
 
-//create a pokemon object
-const pokemon = {
-    name: json.name,
-    sprite: json.sprites.front_default
-}
-
 const renderPokemon = async pokemon => {
     //get the div
       const pokemonElement =  document.querySelector('#pokemon')
       //create the image
         const img = document.createElement('img')
-        img.src = pokemon.source
+        img.src = pokemon.sprites.front_default
         img.alt = pokemon.name
         //append the image to the div
         pokemonElement.appendChild(img)    
 }
 
 //render the pokemon object
-renderPokemon(pokemon)
+renderPokemon(json)
 })()
